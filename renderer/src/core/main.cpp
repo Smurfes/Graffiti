@@ -583,6 +583,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpC
         auto cmds = IPCServer::GetPendingCommands();
         for (const auto& cmd : cmds) {
             if (cmd.cmd == "apply_wallpaper") {
+                PowerManager::OnMouseMove();
                 std::cout << "[main.cpp] Received apply_wallpaper cmd.\n";
                 std::cout << "[main.cpp] -> layerA: " << cmd.strArg1 << "\n";
                 g_lastLayerA = cmd.strArg1;
@@ -600,6 +601,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lpC
                     }
                 }
             } else if (cmd.cmd == "set_effect") {
+                PowerManager::OnMouseMove();
                 IEffectPlugin* oldPlugin = g_pluginLoader.GetActivePlugin();
                 g_pluginLoader.SetActivePlugin(cmd.strArg1);
                 IEffectPlugin* newPlugin = g_pluginLoader.GetActivePlugin();

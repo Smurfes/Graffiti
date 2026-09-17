@@ -21,8 +21,8 @@ struct Settings {
     float pressRadius = 0.09f;
     float stiffness = 300.0f;
     float damping = 0.99f;
-    float depthDarkening = 1.35f;
-    float directionalShading = 0.70f;
+    float depthDarkening = 0.0f;
+    float directionalShading = 0.0f;
     float parallaxStrength = 0.3f;
 };
 static Settings g_settings;

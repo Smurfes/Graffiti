@@ -30,7 +30,7 @@ export default function Effects() {
   // Gravity Lens State
   const [glBaseImage, setGLBaseImage] = useState<string | null>(null);
   const [glStrength, setGLStrength] = useState(5.0);
-  const [glRadius, setGLRadius] = useState(0.3);
+  const [glRadius, setGLRadius] = useState(0.08);
   const [glStiffness, setGLStiffness] = useState(50.0);
   const [glDamping, setGLDamping] = useState(0.90);
   const [glDispersion, setGLDispersion] = useState(0.02);
@@ -56,8 +56,8 @@ export default function Effects() {
   const [sp2Radius, setsp2Radius] = useState(0.3);
   const [sp2Stiffness, setsp2Stiffness] = useState(50.0);
   const [sp2Damping, setsp2Damping] = useState(0.90);
-  const [sp2Darkening, setsp2Darkening] = useState(0.6);
-  const [sp2DirectionalShading, setsp2DirectionalShading] = useState(0.4);
+  const [sp2Darkening, setsp2Darkening] = useState(0.0);
+  const [sp2DirectionalShading, setsp2DirectionalShading] = useState(0.0);
   const [sp2ParallaxStrength, setsp2ParallaxStrength] = useState(0.2);
 
   // Brick Outline State
@@ -540,7 +540,7 @@ export default function Effects() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 2rem' }}>
             <div className="control-group"><label>Lens Strength ({glStrength.toFixed(1)})</label><input type="range" min="0" max="20" step="0.01" value={glStrength} onChange={(e) => handleGLSettingChange('lensStrength', parseFloat(e.target.value), setGLStrength)} /></div>
-            <div className="control-group"><label>Lens Radius ({glRadius.toFixed(2)})</label><input type="range" min="0.1" max="1.0" step="0.001" value={glRadius} onChange={(e) => handleGLSettingChange('lensRadius', parseFloat(e.target.value), setGLRadius)} /></div>
+            <div className="control-group"><label>Lens Radius ({glRadius.toFixed(2)})</label><input type="range" min="0.02" max="0.25" step="0.001" value={glRadius} onChange={(e) => handleGLSettingChange('lensRadius', parseFloat(e.target.value), setGLRadius)} /></div>
             <div className="control-group"><label>Spring Stiffness ({glStiffness.toFixed(0)})</label><input type="range" min="10" max="200" step="0.1" value={glStiffness} onChange={(e) => handleGLSettingChange('stiffness', parseFloat(e.target.value), setGLStiffness)} /></div>
             <div className="control-group"><label>Spring Damping ({glDamping.toFixed(2)})</label><input type="range" min="0.70" max="0.99" step="0.001" value={glDamping} onChange={(e) => handleGLSettingChange('damping', parseFloat(e.target.value), setGLDamping)} /></div>
             <div className="control-group"><label>Chromatic Dispersion ({glDispersion.toFixed(3)})</label><input type="range" min="0" max="0.1" step="0.001" value={glDispersion} onChange={(e) => handleGLSettingChange('dispersion', parseFloat(e.target.value), setGLDispersion)} /></div>
